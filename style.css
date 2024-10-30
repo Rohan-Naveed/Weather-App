@@ -105,6 +105,9 @@ body {
 
 .container .weather-box .weather-description {
   color: aliceblue;
+  font-size: 23px;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
 /* SECTION Weather Details */
