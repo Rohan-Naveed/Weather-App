@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(6, 40, 61, 1) 50%,
+    rgba(6, 40, 61, 1) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.041);
+  backdrop-filter: blur(30px);
+  border: 1px solid aliceblue;
+  border-radius: 10px;
+}
+
+.container .search-box {
+  display: flex;
+  padding: 15px 10px;
+  border: 1px solid aliceblue;
+  border-radius: 10px;
+}
+
+.container .search-box input {
+  width: 200px;
+  font-weight: 500;
+  background-color: transparent;
+  color: aliceblue;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.container .search-box input::placeholder {
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
+.container .search-box i {
+  color: aliceblue;
+  font-size: 20px;
+}
+.container .search-box button {
+  color: aliceblue;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+}
