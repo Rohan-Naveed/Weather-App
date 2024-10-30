@@ -12,15 +12,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="search-box">
+      <form onsubmit="return false" class="search-box">
         <i class="bx bxs-map"></i>
-        <input type="text" placeholder="Enter Your Location" />
+        <input class="input" type="text" placeholder="Enter Your Location" />
         <button class="bx bx-search search-btn"></button>
-      </div>
+      </form>
 
       <div class="weather-box">
         <div class="weather-img">
-          <img class="image" src="" alt="cloud" />
+          <img class="image" src="images/clear.png" alt="cloud" />
         </div>
         <div class="weather-temperature">
           <p>18<span>°C</span></p>
