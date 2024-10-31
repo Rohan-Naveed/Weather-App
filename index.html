@@ -18,10 +18,9 @@
         <button class="bx bx-search search-btn"></button>
       </form>
 
-      <div class="weather-box">
-        <div class="weather-img">
-          <img class="image" src="images/clear.png" alt="cloud" />
-        </div>
+      <div class="weather-box hidden">
+        <img class="image" src="images/clear.png" alt="cloud" />
+
         <div class="weather-temperature">
           <p>18<span>°C</span></p>
         </div>
@@ -30,7 +29,7 @@
         </div>
       </div>
 
-      <div class="weather-details">
+      <div class="weather-details hidden">
         <div class="weather-humidity">
           <div><i class="bx bx-water"></i></div>
           <div class="humidity-data">
@@ -45,6 +44,11 @@
             <p>Wind Speed</p>
           </div>
         </div>
+      </div>
+
+      <div class="error-box hidden">
+        <img src="images/404.png" alt="error-404" />
+        <p>Error 404</p>
       </div>
     </div>
   </body>

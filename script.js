@@ -1,5 +1,9 @@
 const ApiKey = "668268a109c340356e0cd1374876cfe3";
 const input = document.querySelector(".input");
+const container = document.querySelector(".container");
+const weatherBox = document.querySelector(".weather-box");
+const weatherDetails = document.querySelector(".weather-details");
+const errorBox = document.querySelector(".error-box");
 const searchBtn = document.querySelector(".search-btn");
 const image = document.querySelector(".image");
 const temperature = document.querySelector(".weather-temperature");
@@ -55,9 +59,33 @@ const renderMinorData = function (data) {
   <p>Wind Speed</p>`;
 };
 
-const ApiCall = async function (e) {
-  e.preventDefault();
+const displaySuccessUI = function () {
+  // Hide UI Error
+  errorBox.classList.add("hidden");
 
+  // Container Layout (Success)
+  container.classList.remove("error");
+  container.classList.add("active");
+
+  // Display UI Weather Details
+  weatherBox.classList.remove("hidden");
+  weatherDetails.classList.remove("hidden");
+};
+
+const displayErrorUI = function () {
+  // Container Layout (Error)
+  container.classList.remove("active");
+  container.classList.add("error");
+
+  // Hide UI Weather Details
+  weatherBox.classList.add("hidden");
+  weatherDetails.classList.add("hidden");
+
+  // Display UI Error
+  errorBox.classList.remove("hidden");
+};
+
+const ApiCall = async function (e) {
   const country = input.value;
   console.log(country);
   const res = await fetch(
@@ -76,7 +104,13 @@ const ApiCall = async function (e) {
 
     // Rendering Humidity And Wind
     renderMinorData(data);
+
+    // Display UI
+    displaySuccessUI();
+  } else {
+    displayErrorUI();
   }
 };
 
+// Event Handlers
 searchBtn.addEventListener("click", ApiCall);
