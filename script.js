@@ -2,10 +2,12 @@ const ApiKey = "668268a109c340356e0cd1374876cfe3";
 const input = document.querySelector(".input");
 const container = document.querySelector(".container");
 const weatherBox = document.querySelector(".weather-box");
-const weatherDetails = document.querySelector(".weather-details");
 const errorBox = document.querySelector(".error-box");
+const windBox = document.querySelector(".wind-data-box");
+const humidityBox = document.querySelector(".humidity-data-box");
+const weatherDetails = document.querySelector(".weather-details");
 const searchBtn = document.querySelector(".search-btn");
-const image = document.querySelector(".image");
+const weatherImg = document.querySelector(".weather-image");
 const temperature = document.querySelector(".weather-temperature");
 const description = document.querySelector(".weather-description");
 const humidity = document.querySelector(".humidity-data");
@@ -15,30 +17,31 @@ const wind = document.querySelector(".wind-data");
 const renderImg = function (data) {
   switch (data.weather[0].main) {
     case "Clear":
-      image.src = "images/clear.png";
+      weatherImg.src = "images/clear.png";
       break;
 
     case "Rain":
-      image.src = "images/rain.png";
+      weatherImg.src = "images/rain.png";
       break;
 
     case "Snow":
-      image.src = "images/snow.png";
+      weatherImg.src = "images/snow.png";
       break;
 
     case "Clouds":
-      image.src = "images/cloud.png";
+      weatherImg.src = "images/cloud.png";
       break;
 
     case "Mist":
-      image.src = "images/mist.png";
+      weatherImg.src = "images/mist.png";
       break;
 
     case "Haze":
-      image.src = "images/mist.png";
+      weatherImg.src = "images/mist.png";
       break;
 
     default:
+      weatherImg.src = "";
       break;
   }
 };
@@ -54,9 +57,20 @@ const renderMainData = function (data) {
 };
 
 const renderMinorData = function (data) {
-  humidity.innerHTML = ` <p>${data.main.humidity}%</p><p>Humidity</p>`;
-  wind.innerHTML = `<p>${Number(data.wind.speed).toFixed(0)} km/h</p>
-  <p>Wind Speed</p>`;
+  // Render
+  humidity.textContent = `${data.main.humidity}%`;
+  wind.textContent = `${Number(data.wind.speed).toFixed(0)} km/h`;
+};
+
+const renderData = function (data) {
+  // Rendering Image
+  renderImg(data);
+
+  // Rendering Humidity And Wind
+  renderMinorData(data);
+
+  // Rendering Temperature And Description
+  renderMainData(data);
 };
 
 const displaySuccessUI = function () {
@@ -85,6 +99,24 @@ const displayErrorUI = function () {
   errorBox.classList.remove("hidden");
 };
 
+const animateDown = function () {
+  // Moving Data Down
+  weatherImg.classList.add("animate");
+  temperature.classList.add("animate");
+  description.classList.add("animate");
+  humidity.classList.add("animate");
+  wind.classList.add("animate");
+};
+
+const animateUp = function () {
+  //Moving Data Up
+  weatherImg.classList.remove("animate");
+  temperature.classList.remove("animate");
+  description.classList.remove("animate");
+  humidity.classList.remove("animate");
+  wind.classList.remove("animate");
+};
+
 const ApiCall = async function (e) {
   const country = input.value;
   console.log(country);
@@ -96,21 +128,21 @@ const ApiCall = async function (e) {
   if (data.id) {
     console.log(data);
 
-    // Rendering Image
-    renderImg(data);
-
-    // Rendering Temperature And Description
-    renderMainData(data);
-
-    // Rendering Humidity And Wind
-    renderMinorData(data);
-
     // Display UI
     displaySuccessUI();
+
+    // Animation Start
+    animateUp();
+
+    // Render Data
+    setTimeout(renderData, 1000, data);
+
+    setTimeout(animateDown, 1000);
   } else {
     displayErrorUI();
   }
 };
 
 // Event Handlers
+// generateMarkup();
 searchBtn.addEventListener("click", ApiCall);

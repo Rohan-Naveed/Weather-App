@@ -83,36 +83,55 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
   margin-bottom: 30px;
 }
 
-.container .weather-box img {
+.weather-image-box {
   width: 140px;
   height: 110px;
+  overflow: hidden;
 }
 
-.container .weather-box .weather-temperature {
+.weather-image {
+  transform: translateY(-120px);
+  width: 140px;
+  height: 110px;
+  transition: all 1s;
+}
+
+.weather-temperature-box {
+  overflow: hidden;
+  width: 80px;
+}
+
+.weather-temperature {
   font-size: 50px;
   font-weight: 700;
   color: aliceblue;
   position: relative;
   line-height: 1.4;
-}
-
-.container .weather-box .weather-temperature p {
+  transform: translateY(-120px);
+  transition: all 1s;
   margin-right: 12px;
 }
 
-.container .weather-box .weather-temperature span {
+.weather-box .weather-temperature span {
   font-size: 20px;
   position: absolute;
 }
 
-.container .weather-box .weather-description {
+.weather-description-box {
+  overflow: hidden;
+}
+
+.weather-description {
   color: aliceblue;
   font-size: 23px;
   text-transform: capitalize;
   font-weight: 500;
+  transform: translateY(-120px);
+  transition: all 1s;
 }
 
 /* SECTION Weather Details */
@@ -120,6 +139,22 @@ body {
 .weather-details {
   display: flex;
   gap: 15px;
+}
+
+.humidity-data-box {
+  overflow: hidden;
+}
+.wind-data-box {
+  overflow: hidden;
+}
+
+.humidity-data {
+  transform: translateY(-120px);
+  transition: all 1s;
+}
+.wind-data {
+  transform: translateY(-120px);
+  transition: all 1s;
 }
 
 .container .weather-details .weather-humidity,
@@ -158,4 +193,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.animate {
+  transform: translateY(0);
 }
