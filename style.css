@@ -34,12 +34,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background: linear-gradient(transparent, #020024) padding-box,
-    linear-gradient(140deg, transparent 40%, #093a58, #0c507b) border-box;
-  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.074);
+  border: 1px solid aliceblue;
   border-radius: 10px;
-  background-size: 200% 100%;
-  animation: gradient 5s ease infinite;
   transition: all 0.5s;
 }
 

@@ -117,6 +117,10 @@ const animateUp = function () {
   wind.classList.remove("animate");
 };
 
+const UnfocusKeyboard = function () {
+  input.blur();
+};
+
 const ApiCall = async function (e) {
   const country = input.value;
   console.log(country);
@@ -126,23 +130,24 @@ const ApiCall = async function (e) {
   const data = await res.json();
 
   if (data.id) {
-    console.log(data);
-
     // Display UI
     displaySuccessUI();
 
-    // Animation Start
+    // Move Ui Up
     animateUp();
 
     // Render Data
     setTimeout(renderData, 1000, data);
 
+    // Move Ui Down
     setTimeout(animateDown, 1000);
+
+    // Unfocus Keyboard
+    UnfocusKeyboard();
   } else {
     displayErrorUI();
   }
 };
 
 // Event Handlers
-// generateMarkup();
 searchBtn.addEventListener("click", ApiCall);
