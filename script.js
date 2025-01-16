@@ -40,7 +40,7 @@ const renderImg = function (data) {
       weatherImg.src = "images/mist.png";
       break;
 
-    case "fog":
+    case "Fog":
       weatherImg.src = "images/mist.png";
       break;
 
