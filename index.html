@@ -11,47 +11,56 @@
     />
   </head>
   <body>
-    <div class="container">
-      <form onsubmit="return false" class="search-box">
-        <i class="bx bxs-map"></i>
-        <input class="input" type="text" placeholder="Enter Your Location" />
-        <button class="bx bx-search search-btn"></button>
-      </form>
+    <div class="container-wrapper">
+      <div class="container">
+        <form onsubmit="return false" class="search-box">
+          <i class="bx bxs-map"></i>
+          <input class="input" type="text" placeholder="Enter Your Location" />
+          <button class="bx bx-search search-btn"></button>
+        </form>
 
-      <div class="weather-box hidden">
-        <div class="weather-image-box">
-          <img class="weather-image" src="" alt="weather-icons" />
-        </div>
-        <div class="weather-temperature-box">
-          <p class="weather-temperature">18<span>°C</span></p>
-        </div>
-        <div class="weather-description-box">
-          <p class="weather-description">OverCast Clouds</p>
-        </div>
-      </div>
-
-      <div class="weather-details hidden">
-        <div class="weather-humidity">
-          <div><i class="bx bx-water"></i></div>
-          <div class="humidity-data-box">
-            <p class="humidity-data">55%</p>
-            <p>Humidity</p>
+        <div class="weather-box hidden">
+          <div class="weather-image-box">
+            <img class="weather-image" src="" alt="weather-icons" />
+          </div>
+          <div class="weather-temperature-box">
+            <p class="weather-temperature">18<span>°C</span></p>
+          </div>
+          <div class="weather-description-box">
+            <p class="weather-description">OverCast Clouds</p>
           </div>
         </div>
-        <div class="weather-wind">
-          <div><i class="bx bx-wind"></i></div>
-          <div class="wind-data-box">
-            <p class="wind-data">0 km/h</p>
-            <p>Wind Speed</p>
+
+        <div class="weather-details hidden">
+          <div class="weather-humidity">
+            <div><i class="bx bx-water"></i></div>
+            <div class="humidity-data-box">
+              <p class="humidity-data">55%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="weather-wind">
+            <div><i class="bx bx-wind"></i></div>
+            <div class="wind-data-box">
+              <p class="wind-data">0 km/h</p>
+              <p>Wind Speed</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="error-box hidden">
-        <img src="images/404.png" alt="error-404" />
-        <p>Error 404</p>
+        <div class="error-box hidden">
+          <img src="images/404.png" alt="error-404" />
+          <p>Error 404</p>
+        </div>
       </div>
     </div>
+
+    <footer>
+      <p>
+        Copyright <span>&#169;</span> 2024 |
+        <span>Rohan Naveed</span>
+      </p>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>
